@@ -1,0 +1,38 @@
+body {
+  background-image: url('img/background.jpg');
+}
+
+
+.bg-1 {
+  background-color: #fc0000;
+}
+
+.container {
+  border-radius: 25px;
+}
+.container .section {
+  border-radius: 25px;
+}
+.container .section a .btn {
+  opacity: 1;
+  z-index: 1;
+  background-color: red;
+  border: none;
+  box-shadow: none;
+  padding: 15px 30px;
+  font-size: 19px;
+  color: white;
+}
+.container .section a .btn:hover {
+  background-color: white;
+  color: red;
+}
+
+#contactus .container .row .col-md-3 .iconbar a {
+  color: white;
+  text-decoration: none;
+}
+#contactus .container .row .col-md-3 .iconbar a:hover {
+  color: #fc0000;
+}/*# sourceMappingURL=style4.css.map */
+

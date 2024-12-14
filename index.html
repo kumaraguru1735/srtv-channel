@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>SR Tv</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="icon" href="img/tv-icon.png" sizes="16x16">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--SEO-->
+    <title>WoxTec</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+	<script src="hls.js"type="text/javascript"></script>
+    
+</head>
+
+<body>
+    <!--navbar start-->
+    <section>
+        <div class="row d-flex justify-content-center m-0">
+            <div class="col-md-3 col-sm-5 col-xs-8">
+                <nav class="navbar ">
+                    <div class="container">
+                        <a class="navbar-brand mx-auto" href="#">
+                            <img src="img/Logo.png" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+    </section>
+    <!--navbar end-->
+
+    <!--watch live tv start-->
+    <!--Banner video start-->
+<div class="container position-relative">
+    <div class="section">
+	<div class="embed-responsive embed-responsive-16by9" style="border:0px solid #cdcdcd;">
+	<video height="100%" wdith="100%" id="video" controls ></video>
+	</div>
+    </div>
+</div>
+    <!--Banner video end-->
+    <!--watch live tv end-->
+ 
+    <!--contact detail start-->
+    <section id="contactus">
+        <div class="container pt-3">
+            <div class="row d-flex justify-content-evenly ">
+                <div class="col-md-5">
+                    <address>
+                        <h6 class="bg-1 py-2 text-light text-center">Reach Us</h6>
+                        <div style="margin-left: 20px; color: white;">
+                            <span style="font-weight: 700;">OFFICE:</span> 272 Kottai Main Road, Sevvapettai, Salem 636002
+                            <br>
+                        </div>
+                    </address>
+                </div>
+
+
+                <div class="col-md-3 pb-3">
+                    <div class="iconbar">
+                        <h6 class="bg-1 py-2 text-light text-center">Contact Us</h6>
+                        <div style="margin-left: 20px; line-height:1.8 ;">
+                            <a href="tel:+917373732000"><img src="img/phone.png" alt="" width="25"> / <img
+                                    src="img/wa.png" alt="" width="25"> +91 63832 414140</a> <br>
+                            <a href="mailto:srtvchannel6006@gmail.com"><img src="img/mail.png" alt="" width="25">
+                                srtvchannel6006@gmail.com</a><br>
+
+                            <div style="letter-spacing: 13px; ">
+                                <a href="https://www.facebook.com" target="_blank"><img src="img/fb.png"
+                                        alt="" width="25"></a>
+
+                                <a href="https://www.instagram.com" target="_blank"><img src="img/insta.png"
+                                        alt="" width="25"></a>
+
+                                <a href="https://www.twitter.com" target="_blank"><img src="img/twitter.png"
+                                        alt="" width="25"></a>
+
+                                <a href="https://www.youtube.com" target="_blank"><img src="img/Youtube.png"
+                                        alt="" width="25"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+    </section>
+    <p class="bg-1 w-100 text-light text-center py-2 mb-0">© All rights reserved</p>
+    <!--contact detail end-->
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+		<script>
+        if(Hls.isSupported()) {
+          var video = document.getElementById('video');
+          var hls = new Hls({
+              debug: true
+          });
+          hls.loadSource('https://stream.onecloudlive.in/srtvchannel/srtv/index.m3u8');
+          hls.attachMedia(video);
+          hls.on(Hls.Events.MEDIA_ATTACHED, function() {
+            video.muted = false;
+            video.play();
+        });
+       }
+       // hls.js is not supported on platforms that do not have Media Source Extensions (MSE) enabled.
+       // When the browser has built-in HLS support (check using `canPlayType`), we can provide an HLS manifest (i.e. .m3u8 URL) directly to the video element throught the `src` property.
+       // This is using the built-in support of the plain video element, without using hls.js.
+        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = 'https://stream.onecloudlive.in/srtvchannel/srtv/index.m3u8';
+          video.addEventListener('canplay',function() {
+            video.play();
+          });
+        }
+      </script>
+</body>
+
+</html>
